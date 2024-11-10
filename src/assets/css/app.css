@@ -1,0 +1,215 @@
+.textarea {
+  position: absolute;
+  text-align: center;
+  right: 0px;
+  width: 80%;
+  min-height: 100px;
+  overflow: hidden;
+}
+
+.textarea ul {
+  display: inline-block;
+  text-align: left;
+}
+
+.textarea form {
+  text-align: left;
+}
+
+.webcamview {
+  position:fixed;
+  top: 0;
+  right: 0;
+  text-align: center;
+}
+
+.webcam {
+  width: 300px;
+  height: 300px;
+  z-index: -100;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.sidebar {
+  height:100%;
+  width:20%;
+  left: 0px;
+  position:absolute;
+  z-index:1;
+  min-height: 100px;
+  overflow: hidden;
+  color:#000!important;
+  background-color:#f1f1f1!important;
+}
+
+.sidebar p {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+}
+
+.sidebar P.active {
+  background-color: #fff;
+}
+
+.example-container {
+  width: 400px;
+  height: 200px;
+  margin: 12px;
+  border: 1px solid #555;
+}
+
+.snapshot{
+  text-align: center;
+}
+
+.snapshot img{
+  max-width: 400px;
+  max-height: 400px;
+  margin-bottom: 20px;
+}
+
+
+  /* Fix order of labels and button of boolean question */
+  .sv-boolean__order-fix > span:first-of-type {
+    order: -1;
+  }
+  /* End fix order of boolean question */
+  
+  /* Image checkbox custom css */
+  .sv-imagecheckbox_text {
+    display: block;
+    text-align: center;
+  }
+
+  .sv-imagecheckbox {
+    user-select: none;
+    position: relative;
+    /*padding: .75rem 0;*/
+    margin: 0 .5rem .5rem 0;
+    display: inline-block;
+    color: #000;
+    transition-duration: 300ms;
+    border-radius: .25rem;
+  }
+  .sv-imagecheckbox>label:focus-within {
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem #d3d4d580;
+  }
+  .sv-imagecheckbox input {
+    display: block;
+    background-size: 100% 100%;
+    content: "";
+    color: white;
+    background-color: white;
+    font-weight: bold;
+    border: 1px solid #00000040;
+    border-radius: .25rem;
+    position: absolute;
+    margin: 0;
+    z-index: 1;
+    text-align: center;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+  }
+  
+  .sv-imagecheckbox img {
+    padding: .75rem 0;
+    transform: scale(1);
+    transition-duration: 300ms;
+  }
+  .sv-imagecheckbox_hover>label:hover {
+    background-color: #f8f9fa;
+    border-color: #f8f9fa;
+  }
+  .sv-imagecheckbox_checked>label {
+    background-color: #f8f9fa;
+  }
+  .sv-imagecheckbox_checked img {
+    transform: scale(0.8);
+    transition-duration: 300ms;
+  }
+  .sv-imagecheckbox_checked-input {
+    border: none;
+  
+    transition-duration: 300ms;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggIGZpbGw9IiNmZmYiIGQ9Ik01LDEzbDItMmwzLDNsNy03bDIsMmwtOSw5TDUsMTN6Ij48L3BhdGg+PC9zdmc+");
+    background-color: #007bff;
+  }
+  .sv_q_imgsel_control_item {
+    display: block !important;
+  }
+  /* End image checkbox custom css */
+  
+  
+  /* Workaround for ranking style (changing css class names breaks ranking questions as of v1.8.30) */
+  .sv-ranking-item__icon {
+    fill: var(--bs-primary) !important;
+  }
+  
+  .sv-ranking-item__index {
+    background-color: var(--bs-primary) !important;
+    border: unset !important;
+    color: var(--bs-white);
+    margin-right: .25em;
+  }
+  
+  .sv-ranking-item:focus .sv-ranking-item__index {
+    background-color: #0b5ed7 !important;
+    box-shadow: 0 0 0 .25rem #3184fd80 !important;
+  }
+  /* End workaround for ranking style */
+  
+  .btn-check:focus-within + .btn, .btn:focus-within {
+    outline: currentcolor none 0;
+    box-shadow: 0 0 0 0.25rem #0d6efd40;
+  }
+
+  .btn-outline-light {
+    color: #000;
+  }
+  
+  @media(max-width: 600px) {
+    .table > :not(:first-child) {
+      border-top: 0;
+    }
+  
+    .sv_q_m_cell:not(:first-child,:last-child) {
+      border: 0;
+    }
+  
+    .table-hover > tbody > tr:hover > * {
+      --bs-table-accent-bg: transparent;
+      color: var(--bs-table-active-color);
+    }
+  
+    .table-striped > tbody > tr:nth-of-type(odd):hover > * {
+      --bs-table-accent-bg: var(--bs-table-striped-bg);
+      color: var(--bs-table-striped-color);
+    }
+  
+    .table-hover > tbody > tr > td:not(:first-child):hover,
+    .table-striped > tbody > tr:nth-of-type(odd) > td:not(:first-child):hover {
+      --bs-table-accent-bg: var(--bs-table-hover-bg);
+      color: var(--bs-table-hover-color);
+    }
+  }
+  
+  /* Fix form-group class */
+  .form-group {
+    width: 100%;
+  }
+  /* End fix form-group class */
+  
+  textarea {
+    resize: vertical !important;
+  }
+  
+  .sv-q-col-1 {
+    padding-right: 0 !important;
+  }
+  

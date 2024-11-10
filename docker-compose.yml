@@ -1,0 +1,43 @@
+version: '3.1'
+
+services:
+
+  mongo:
+    image: mongo
+#    restart: always
+    ports:
+     - 27000:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
+      INIT_WAIT_SEC: 3 
+    volumes:
+      - ./data:/data/db
+
+  mongo-express:
+    image: mongo-express
+#    restart: always    
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_BASICAUTH_USERNAME: ${MONGO_USERNAME}
+      ME_CONFIG_BASICAUTH_PASSWORD: ${MONGO_PASSWORD}
+      ME_CONFIG_MONGO_SERVER: mongo
+      ME_CONFIG_MONGODB_PORT: "27000"
+      ME_CONFIG_MONGODB_ADMINUSERNAME: ${ME_ADMIN_USERNAME}
+      ME_CONFIG_MONGODB_ADMINPASSWORD: ${ME_ADMIN_PASSWORD}
+      ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017
+  
+  node:
+    image: node-express
+    build: ./docker-node
+    #    restart: always    
+    ports: 
+      - 8888:8888
+    environment:
+      EXPRESS_PORT: 8888
+      CONNECTION_STRING: mongodb://root:example@mongo:27017
+    volumes:
+      - ./dist:/usr/src/express/dist
+      - ./server:/usr/src/express/server
+    

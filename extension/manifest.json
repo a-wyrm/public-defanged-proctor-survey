@@ -1,0 +1,49 @@
+{
+    "manifest_version": 2,
+    "name": "GWUSEC Exam Privacy Research",
+    "version": "1.0",
+    "description": "Limit maximum number of open tabs",
+    "icons": {
+        "16": "./images/gw_monogram_blue.png",
+        "48": "./images/gw_monogram_blue.png",
+        "128": "./images/gw_monogram_blue.png"
+    },
+    "web_accessible_resources": [
+        "images/extension-enabled.png",
+        "images/radiorecording.png",
+        "images/connecting.png",
+        "images/connected.png",
+        "images/testProctor.mp4",
+        "js/AI/webgazer.js"],
+    "permissions": [
+        "https://nets.gwusec.seas.gwu.edu/",
+        "tabs", 
+        "processes",
+        "management",
+        "storage",
+        "activeTab",
+        "http://*/*",
+        "https://*/*",
+        "*://*.wikipedia.org/*"
+    ],
+    "externally_connectable" : {
+        "matches": ["*://nets.gwusec.seas.gwu.edu/*", "*://localhost/*"]
+    },
+    "content_scripts": [
+        {
+            "matches": ["http://*/*", "https://*/*"],
+            "js": ["./js/inject-id.js", "./js/open-wiki.js", "./js/AI/webgazer.js"]
+        }
+    ],
+    "browser_action": {
+        "default_title": "GWUSEC Exam Privacy Research"
+    },
+    "background": {
+        "scripts": [
+            "background.js"
+        ]
+    },
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+
+
+}
